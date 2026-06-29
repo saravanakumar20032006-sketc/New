@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:dodgerblue;
+            margin: 0;
+            
+
+        }
+        .Main{
+            width: 40vw;
+            background-color: gainsboro;
+            position: relative;
+            left: 30vw;
+            top: 20vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+        button{
+            width: 150px;
+            height: 20px;
+            background-color: dodgerblue;
+            color: rgb(19, 17, 17);
+            border-radius: 10px;
+            margin: 30px;
+          
+        }
+        input{
+            width: 200px;
+            height: 20px;
+            color: rgb(15, 15, 15);
+            border-radius: 10px;
+            margin: 30px;
+          
+        }
+    </style>
+</head>
+<body>
+    <div class="Main">
+        <h1>SARO STORAGE</h1>
+        <input type="text" id="userKey" placeholder="Enter title">
+        <input type="text" id="userdata" placeholder="Enter value">
+       <button onclick="addData()">Add</button>
+       <div id="returndata">
+        Data
+
+       </div>
+       <input type="text" id="usersearch" placeholder="search here">
+       <button onclick="getData()">Search</button>
+       <button onclick="deleteData()">Delete all</button>
+    </div>
+    <script>
+        function addData(){
+            let uservalue = document.getElementById("userdata").value;
+            let usertitle = document.getElementById("userKey").value;
+            localStorage.setItem(usertitle,uservalue);
+        }
+        function getData(){
+            let searchvalue = document.getElementById("usersearch").value;
+            let returnvalue = localStorage.getItem(searchvalue);
+            document.getElementById("returndata").innerText = returnvalue;
+        }
+        function deleteData(){
+            localStorage.clear()
+        }
+    </script>
+</body>
+</html>
